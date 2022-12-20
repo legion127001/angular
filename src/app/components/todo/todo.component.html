@@ -1,0 +1,18 @@
+<!-- <style>
+    .box1{
+        height: 400px;
+        width: 80vw;
+        margin: 0 auto;
+        margin-top: 40px;
+        box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+    }
+</style>
+<div class="container box1">
+    <app-todo-item></app-todo-item>
+</div> -->
+
+<h3 class="text-center">ToDo's</h3>
+<app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
+<ul *ngFor="let todo of todo">
+    <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)" ></app-todo-item>
+</ul>
