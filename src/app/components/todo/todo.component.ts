@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Todo } from 'src/app/Todo';
 
+
 @Component({
   selector: 'app-todo',
   templateUrl: './todo.component.html',
@@ -59,9 +60,9 @@ export class TodoComponent implements OnInit {
     console.log(todo);
     localStorage.setItem("todo",JSON.stringify(this.todo));
   }
-  toogletodo(todo:Todo){
-    // const index = this.todo.indexOf(todo);
-    // this.todo[index].active=!this.todo[index.active];
-    // localStorage.setItem("todo",JSON.stringify(this.todo))
+  toogleTodo(todo:Todo){
+    const index = this.todo.indexOf(todo);
+    this.todo[index].active=!this.todo[index].active;
+    localStorage.setItem("todo",JSON.stringify(this.todo))
   }
 }

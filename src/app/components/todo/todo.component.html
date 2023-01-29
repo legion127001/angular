@@ -1,18 +1,26 @@
-<!-- <style>
+ <style>
     .box1{
-        height: 400px;
-        width: 80vw;
+        height: 80vh;
+        width: 90vw;
         margin: 0 auto;
         margin-top: 40px;
+        padding : 40px;
+        /* border: 4px black solid; */
         box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+        overflow: scroll;
     }
 </style>
-<div class="container box1">
-    <app-todo-item></app-todo-item>
-</div> -->
-
-<h3 class="text-center">ToDo's</h3>
+<h3 class="text-center my-4 ">ToDo List Project</h3>
 <app-add-todo (todoAdd)="addTodo($event)"></app-add-todo>
-<ul *ngFor="let todo of todo">
-    <app-todo-item [todo]="todo" (todoDelete)="deleteTodo($event)" ></app-todo-item>
+<div class="box1 row row-cols-3 ">
+    
+<div *ngIf="this.todo.length===0; else elseBlock" class="text-center"><b>There is nothing to display.</b></div>
+<ng-template #elseBlock>
+<ul *ngFor="let todo of todo;index as i">
+    <app-todo-item [todo]="todo" [i]="i" (todoDelete)="deleteTodo($event)" (todoCheckBox)="toogleTodo($event)"></app-todo-item>
 </ul>
+</ng-template>
+
+
+</div> 
+ 
